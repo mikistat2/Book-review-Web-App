@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <section class="body-container-section">
+       
+        <div class="headers">
+
+            <div class="header-title">
+                <h1> My book collection</h1>
+            </div>
+            
+            <div class="sorting-box">
+                <label for="sort">Sort by:</label>
+            <select id="sort" name="sort">
+             <option value="name">Name</option>
+            <option value="date">Date</option>
+            </div>
+            
+
+        </div>
+        
+
+
+        
+</select>
+
+    <% books.forEach(book => { %>
+        
+    
+            <div class="content-container">
+                
+                <div class="image-box ">
+                    <img class="book-cover" id="<% book.id %>"   src="<%= book.cover_image %>" alt=" <%=book.title %> cover Image">
+                </div>
+
+                <div class="text-container ">
+
+                    <div class="title-container">
+
+                        <div class="title ">
+                            <h1><%= book.title %></h1>
+                        </div>
+
+                        <div class="edit-delete">
+
+                            <div class="edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
+
+                            <div class="delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="date-and-rec-container">
+
+                        <div class="date ">
+                            <h3> Date i read it:   <%= book.date_read.toISOString().split('T')[0] %>
+ %></h3>
+                        </div>
+
+                        <div class="recomendation ">
+                            <h3>Recomendation <%=book.recomendation%>/10</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="text ">
+                        <p><%= book.short_review %></p>
+
+                    </div>
+
+                <div class="rating-recomendation">
+
+                        <div class="read-more">
+                        <a href="/book/1" class="read-more-link">Read more about my notes </a>
+                        </div>
+
+                    <div class="rating">
+  <span><strong>Rating: </strong></span>
+  <% for (let i = 1; i <= 5; i++) { %>
+    <% if (i <= book.rating) { %>
+      <span class="fa fa-star checked"></span>
+    <% } else { %>
+      <span class="fa fa-star"></span>
+    <% } %>
+  <% } %>
+</div>
+
+                </div>
+
+                    
+          <%   }); %>
+                    
+            </div>
+
+                    
+            
+                </div>
+
+            </div> 
+
+            <div class="Add-new-form">
+                <form action="/add" method="post">
+                    <button type="submit"> Add new book</button>
+                </form>
+
+    </section>
+    
+    
+
+
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

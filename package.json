@@ -1,0 +1,19 @@
+{
+  "name": "book-review-web-app",
+  "version": "1.0.0",
+  "description": "A website that allow users to make a review about the book they have read and make rating as well having a little note and whenthey read the book.",
+  "license": "ISC",
+  "author": "Mikiyas Dawit",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

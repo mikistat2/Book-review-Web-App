@@ -1,0 +1,533 @@
+body{
+    background-color: aquamarine;
+    margin: 0;
+    padding: 0;
+}
+
+/* for the header */
+
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:rgb(5, 34, 30);
+}
+.navbar li{
+    list-style: none;
+    font-size: 1.2rem;
+    margin-right: 20px;
+    color: #fff;
+}
+
+.navbar i {
+    font-size: 3rem;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* for the footer */
+
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding: 20px;
+    background-color: rgb(5, 34, 30);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+
+    font-family: 'Open Sans', sans-serif;
+    
+
+
+}
+
+.footer .content-left li{
+    list-style: none;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer .content-left{
+
+    margin-top: 30px;
+}
+
+.footer .content-middle i{
+    font-size: 2.7rem;
+    color: rgb(103, 86, 211);
+    transition: 0.2s;
+}
+
+.footer .content-middle i:hover{
+    color: rgb(162, 154, 210);
+    transition: 0.2s;
+}
+.footer .content-middle .icons{
+    display: flex;
+    gap: 25px;
+    margin-top: 60px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.footer .content-middle .copyright p{
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer .content-middle .copyright{
+    margin-top: 100px;
+    font-size: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+   
+}
+.footer .content-right{
+    display: flex;
+    flex-direction: column;
+}
+.footer .content-right input{
+    border-radius: 10px;
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    border-style: solid;
+    border-color: aquamarine;
+    margin-bottom: 20px;
+    transform: 0.2s;
+}
+
+.footer .content-right button{
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: aquamarine;
+    margin-bottom: 20px;
+    background-color: rgb(17, 189, 189);
+    transition: 0.2s;
+}
+
+.footer .content-right button:hover{
+    background-color: rgb(20, 92, 92);
+    border-style: solid;
+    border-color: rgb(41, 41, 98);
+    transition: 0.2s;
+}
+
+
+
+
+
+
+@media (max-width: 992px){
+
+    /* for the footer */
+
+    .footer{
+        padding: 10px;
+    }
+    .footer .content-right{
+        display:none;
+
+    }
+
+    .footer .content-middle i{
+        font-size: 2rem;
+    }
+    .footer .content-left li{
+    list-style: none;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
+
+.footer .content-middle .copyright{
+    margin-right: 100px;
+}
+
+}
+
+/* for the main body  */
+
+
+.body-container-section{
+  animation: slideIn 0.6s ease-out;
+}
+
+.body-container-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 200px;
+    padding-top: 100px;
+    
+    
+}
+.sorting-box{
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.body-container-section select{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    border-style: solid;
+    border-color: aquamarine;
+    background-color: rgb(17, 189, 189);
+    color: #fff;
+    font-size: 1rem;
+}
+
+
+
+.content-container{
+    display: block;
+    flex-direction: row;
+    margin-top: 80px;
+    height: auto;
+    
+}
+
+.date-and-rec-container{
+     
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-delete{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    gap: 50px;
+}
+
+.edit-delete i {
+    font-size: 1.3rem;
+    color: rgb(39, 29, 99);
+    transition: 0.2s;
+}
+.edit-delete i:hover {
+    color: rgb(162, 154, 210);
+    transition: 0.2s;
+    font-size: 1.4rem;
+}
+
+
+.image-box{
+    height: 30vh;
+    width: 150px !important;
+    margin-right: 30px;
+    display: inline;
+}
+
+.book-cover{
+    height: 30vh;
+    width: 150px;
+    float: left;
+    overflow: hidden;
+     margin-right: 20px;
+    margin-bottom: 10px;
+}
+.title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.title h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.date {
+
+    margin-right: 10px;
+}
+
+.recomendation{
+    height: 3vh;
+    width: 200px;
+}
+
+.text{
+    
+    
+}
+
+.Add-new-form{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.Add-new-form button{
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: aquamarine;
+    background-color: rgb(27, 100, 100);
+    transition: 0.2s;
+    margin-left: auto;
+    margin-top: 120px;
+}
+.rating-recomendation{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between ;
+}
+
+.rating{
+    margin-left: 200px;
+}
+
+
+
+.rating.checked{
+    color: rgb(255, 191, 16);
+    transition: 0.2s;
+}
+
+.checked span{
+    color: yellow;
+}
+
+.fa-star {
+  color: #ccc; /* light gray for empty stars */
+}
+
+.checked {
+  color: gold; /* or #ffc107 for Bootstrap yellow */
+}
+
+.Add-new-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* optional spacing */
+}
+
+.Add-new-form button {
+  width: 300px;
+  max-width: 300px;
+  height: 35px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Add-new-form button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+}
+
+
+
+
+@media (max-width: 992px){
+    .body-container-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin-left: 0px;
+    padding: 20px;
+}
+
+    .content-container{
+    margin-top: 80px;
+    height: auto;
+}
+
+.edit-delete{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    gap: 30px;
+}
+
+.image-box{
+    height: 25vh;
+    width: 120px !important;
+    margin-right: 25px;
+    display: inline;
+}
+
+.rating-recomendation{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+}
+
+
+
+.book-cover{
+    height: 25vh;
+    width: 120px;
+    float: left;
+    overflow: hidden;
+}
+
+
+
+.rating{
+    margin-top: 0px !important;
+}
+
+
+
+.rating-recomendation{
+    display: flex !important;
+    flex-direction: column !important;
+    
+}
+
+.Add-new-form button{
+    margin-right: 0px;
+}
+
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* for the new book form  */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: linear-gradient(to bottom, #17cdb7, #0c816e);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.new-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.new-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4a00e0;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-form label {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.book-form input,
+.book-form textarea {
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #f4f4f4;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.book-form input:focus,
+.book-form textarea:focus {
+  background: #fff;
+  border: 2px solid #4a00e0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 0, 224, 0.2);
+}
+
+.book-form textarea {
+  resize: vertical;
+}
+
+.book-form button {
+  margin-top: 30px;
+  padding: 12px;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.book-form button:hover {
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
