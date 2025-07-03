@@ -4,6 +4,9 @@ body{
     padding: 0;
 }
 
+body p{
+   line-height: 1.6 !important;
+}
 /* for the header */
 
 
@@ -273,9 +276,10 @@ body{
     width: 200px;
 }
 
-.text{
-    
-    
+.rating-recomendation button{
+  background: none;
+  border-style: none;
+  font-size: 1.1rem;
 }
 
 .Add-new-form{
@@ -930,6 +934,74 @@ font-size: 2rem;
   
 }
 
+}
+
+
+/* for the more pages */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  color: #333;
+}
+
+.book-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.cover-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-title {
+  margin-top: 20px;
+  font-size: 2em;
+  color: #222;
+  text-align: center;
+}
+
+.rating-recommendation {
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: #555;
+  text-align: center;
+}
+
+.long-review {
+  margin-top: 25px;
+  line-height: 1.6;
+  font-size: 1.1em;
+  padding: 0 10px;
+}
+
+
+.back-button {
+  background-color: #08478b;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-items: center;
+  margin: 50px 100px;
+}
+
+.back-button:hover {
+  background-color: #202899;
+  transform: translateY(-2px);
 }
 
 

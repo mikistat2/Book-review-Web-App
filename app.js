@@ -164,8 +164,9 @@ app.get("/edit/:id", async (req, res) => {
     JOIN details d ON b.id = d.book_id
     WHERE b.id = $1`, [bookId]);
     const book = result.rows[0];
+    const recomendation = book.recomendation;
     
-    res.render("edit.ejs", { book, cover_image, title});
+    res.render("edit.ejs", { book, recomendation});
   });
 
 app.post("/edit", async (req, res)=>{
@@ -182,10 +183,26 @@ app.post("/edit", async (req, res)=>{
     [rating, recommendation, book_id]);
 
      res.redirect("/");
-    
 
-    
+});
 
+app.get("/book/:id", async (req, res) => {
+  const bookId = req.params.id;
+  const result = await db.query(`
+    SELECT 
+      b.id AS book_id, 
+      b.title, 
+      b.date_read, 
+      b.cover_image, 
+      b.short_review, 
+      b.long_review,
+      d.rating, 
+      d.recomendation
+    FROM books AS b
+    JOIN details d ON b.id = d.book_id
+    WHERE b.id = $1`, [bookId]);
+
+    res.render("more.ejs", { book: result.rows[0], cover_image, title });
 });
 
 app.listen(port, () => {

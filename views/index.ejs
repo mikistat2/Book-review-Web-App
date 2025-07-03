@@ -101,9 +101,16 @@ style="background: none; border: none;"
 
                 <div class="rating-recomendation">
 
-                        <div class="read-more">
-                        <a href="/book/1" class="read-more-link">Read more about my notes </a>
+                  <form action="/more/<%= book.book_id %>" method="post">
+                    <div class="read-more">
+
+                      <button type="submit"><a href="/book/<%= book.book_id %>">Read more about my notes</a>
+ </a></button>
+                        
                         </div>
+                  </form>
+
+                        
 
                                     <div class="rating">
                   <span><strong>Rating: </strong></span>
