@@ -50,13 +50,22 @@
 
                         <div class="edit-delete">
 
-                            <div class="edit">
-                                <i class="fa-solid fa-pen"></i>
-                            </div>
+                            <form action="/edit" method="post">
+                                <div class="edit">
+                                    <button style="background: none; border: none;" type="submit" id="<%= book.book_id%> "name="editedBook" value="<%= book.book_id %>"><i class="fa-solbook_id fa-pen"></i></button>  
+                                </div>
+                            </form>
 
-                            <div class="delete">
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
+                            <form action="/delete" method="post">
+                                <div class="delete" id="<%= book.book_id %>">
+                                    <%= console.log(book.book_id) %>
+                                    <button style="background: none; border: none;" id="<%= book.id %>" name="deletedBook" value="<%= book.book_id%>"><i class="fa-solid fa-trash"></i></button>
+                                    
+                                </div>
+                            </form>
+                            
+
+                            
                         </div>
                     </div>
                     

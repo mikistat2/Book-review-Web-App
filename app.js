@@ -31,8 +31,21 @@ app.use(express.static("public"));
 
 async function getBooks() {
    try{
-    const result = await db.query("SELECT * FROM books AS b JOIN details d ON b.id = d.book_id ");
-    books = result.rows;
+    const result = await db.query(`
+  SELECT 
+    b.id AS book_id, 
+    b.title, 
+    b.date_read, 
+    b.cover_image, 
+    b.short_review, 
+    b.long_review,
+    d.rating, 
+    d.recomendation
+  FROM books AS b
+  JOIN details d ON b.id = d.book_id
+`);
+books = result.rows;
+
   }
   catch (error) {
     console.error("Error fetching books:", error);
@@ -74,7 +87,7 @@ async function getBookCoverByTitle(title) {
 app.get("/", async(req, res)=>{
    await getBooks();
    const test = await getBookCoverByTitle("verity");
-   console.log(test);
+   console.log( "the api bookcover fot the current book " + test);
 
   res.render("index.ejs", {books});
 
@@ -86,8 +99,6 @@ app.post("/add", (req, res) => {
   res.render("new.ejs", { books})
   
   });
-
-
 
 
 app.post("/books/add", async (req, res) => {
@@ -119,16 +130,20 @@ app.post("/books/add", async (req, res) => {
 
 
 
+app.post ("/delete", async (req, res)=>{
+  const bookId = parseInt(req.body.deletedBook);
+  console.log("Deleting book with ID:" + bookId);
 
-
-
-
-
-
-
+  try {
+    await db.query("DELETE FROM details WHERE book_id = $1", [bookId]);
+    await db.query("DELETE FROM books WHERE id = $1", [bookId]);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error deleting book:", error);
+    res.status(500).send("Internal Server Error");
+  }
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port${port}`);
 });
-
-
