@@ -18,27 +18,66 @@ const db = new pg.Client({
 db.connect();
 
 let books = [];
+let cover_image = null;
+let title = null;
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+
+// for getting the book data base
+
+
 async function getBooks() {
    try{
     const result = await db.query("SELECT * FROM books AS b JOIN details d ON b.id = d.book_id ");
     books = result.rows;
-    
   }
   catch (error) {
     console.error("Error fetching books:", error);
-    
   }
-
 }
+
+// fot the book cover by title using api and axios
+
+async function getBookCoverByTitle(title) {
+  if (!title) return null;
+
+  try {
+    const res = await axios.get(`https://openlibrary.org/search.json?title=${encodeURIComponent(title.trim())}`);
+    const docs = res.data.docs;
+
+    if (!docs || docs.length === 0) {
+      console.warn("No docs found for title:", title);
+      return null;
+    }
+
+    for (const doc of docs) {
+      if (doc.cover_edition_key) {
+        
+        return `https://covers.openlibrary.org/b/OLID/${doc.cover_edition_key}-L.jpg`;
+      } else if (doc.edition_key && doc.edition_key.length > 0) {
+       
+        return `https://covers.openlibrary.org/b/OLID/${doc.edition_key[0]}-L.jpg`;
+      }
+    }
+    return null;
+
+  } catch (error) {
+    console.error("Error fetching cover:", error.message);
+    return null;
+  }
+}
+
 
 app.get("/", async(req, res)=>{
    await getBooks();
+   const test = await getBookCoverByTitle("verity");
+   console.log(test);
+
   res.render("index.ejs", {books});
+
  
 });
 
@@ -48,9 +87,15 @@ app.post("/add", (req, res) => {
   
   });
 
-app.post("/books/add", async (req, res) => {
-  const { title, cover_image, date_read, rating, recommendation, long_review, short_review } = req.body;
 
+
+
+app.post("/books/add", async (req, res) => {
+  const { date_read, rating, recommendation, long_review, short_review } = req.body;
+  title = req.body.title;
+  cover_image = await getBookCoverByTitle(title);
+  console.log("Book cover URL:", cover_image);
+  console.log("Title:", title);
   
  try {
   const bookResult = await db.query(
@@ -69,9 +114,6 @@ app.post("/books/add", async (req, res) => {
   console.error("Error adding book:", error);
   res.status(500).send("Internal Server Error");
 }
-
-  
-
 });
 
 
