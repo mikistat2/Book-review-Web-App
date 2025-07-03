@@ -531,3 +531,76 @@ body {
 }
 
 
+
+/* for the delete button confermation  */
+
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: linear-gradient(to right, #271a40, #3b1e54);
+    padding: 2rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    color: #fff !important;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .modal-content h2 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+  }
+
+  .modal-buttons button {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  #confirm-delete-btn {
+    background-color: #e63946;
+    color: #fff;
+  }
+
+  #cancel-delete-btn {
+    background-color: #7d89f9;
+    color: #333;
+  }
+
+  #confirm-delete-btn:hover {
+    background-color: #d62828;
+  }
+
+  #cancel-delete-btn:hover {
+    background-color: #ddd;
+  }
+
+
+
