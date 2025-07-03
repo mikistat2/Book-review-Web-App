@@ -50,12 +50,14 @@
 
                         <div class="edit-delete">
 
-                            <form action="/edit" method="post">
-                                <div class="edit">
-                                    <button style="background: none; border: none;" type="submit" id="<%= book.book_id%>"name="editedBook" value="<%= book.book_id %>">
-                                        <i class="fa-solid fa-pen"></i></button>  
-                                </div>
+                            <form action="/edit/<%= book.book_id %>" method="get">
+                              <div class="edit">
+                                <button style="background: none; border: none;" type="submit">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>  
+                              </div>
                             </form>
+
 
                             <!-- Trigger Delete Button -->
 <button 
@@ -82,7 +84,7 @@ style="background: none; border: none;"
                     <div class="date-and-rec-container">
 
                         <div class="date ">
-                            <h3> Date i read it:   <%= book.date_read.toISOString().split('T')[0] %>
+                            <h3> Date i read it:   <%= new Date(book.date_read).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
  %></h3>
                         </div>
 
@@ -103,21 +105,21 @@ style="background: none; border: none;"
                         <a href="/book/1" class="read-more-link">Read more about my notes </a>
                         </div>
 
-                    <div class="rating">
-  <span><strong>Rating: </strong></span>
-  <% for (let i = 1; i <= 5; i++) { %>
-    <% if (i <= book.rating) { %>
-      <span class="fa fa-star checked"></span>
-    <% } else { %>
-      <span class="fa fa-star"></span>
-    <% } %>
-  <% } %>
-</div>
+                                    <div class="rating">
+                  <span><strong>Rating: </strong></span>
+                  <% for (let i = 1; i <= 5; i++) { %>
+                    <% if (i <= book.rating) { %>
+                      <span class="fa fa-star checked"></span>
+                    <% } else { %>
+                      <span class="fa fa-star"></span>
+                    <% } %>
+                  <% } %>
+                 </div>
 
-                </div>
+                                </div>
 
-                    
-          <%   }); %>
+                                    
+                          <%   }); %>
                     
             </div>
 

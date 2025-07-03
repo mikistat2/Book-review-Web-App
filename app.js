@@ -20,6 +20,7 @@ db.connect();
 let books = [];
 let cover_image = null;
 let title = null;
+let switcher = 0;
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -143,6 +144,49 @@ app.post ("/delete", async (req, res)=>{
     res.status(500).send("Internal Server Error");
   }
 })
+
+
+app.get("/edit/:id", async (req, res) => {
+
+  const bookId = parseInt(req.params.id);
+
+  const result = await db.query(`
+    SELECT 
+      b.id AS book_id, 
+      b.title, 
+      b.date_read, 
+      b.cover_image, 
+      b.short_review, 
+      b.long_review,
+      d.rating, 
+      d.recomendation
+    FROM books AS b
+    JOIN details d ON b.id = d.book_id
+    WHERE b.id = $1`, [bookId]);
+    const book = result.rows[0];
+    
+    res.render("edit.ejs", { book, cover_image, title});
+  });
+
+app.post("/edit", async (req, res)=>{
+  
+  const bookId = parseInt(req.body.editedBook);
+
+  const { date_read, rating, recommendation, long_review, short_review,  } = req.body;
+  title = req.body.title;
+  const book_id = parseInt(req.body.editedBook);
+
+    await db.query("UPDATE books SET title = $1, date_read = $2, long_review = $3, short_review = $4 WHERE id = $5",
+    [title, date_read, long_review, short_review, book_id]);
+    await db.query("UPDATE details SET rating = $1, recomendation = $2 WHERE book_id = $3",
+    [rating, recommendation, book_id]);
+
+     res.redirect("/");
+    
+
+    
+
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port${port}`);
