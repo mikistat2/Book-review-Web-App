@@ -47,6 +47,7 @@ async function getBooks() {
 `);
 books = result.rows;
 
+
   }
   catch (error) {
     console.error("Error fetching books:", error);
@@ -95,6 +96,10 @@ app.get("/", async(req, res)=>{
  
 });
 
+app.get("/add", async (req, res) => {
+  res.render("new.ejs", { books})
+
+});
 
 app.post("/add", (req, res) => {
   res.render("new.ejs", { books})
@@ -165,8 +170,10 @@ app.get("/edit/:id", async (req, res) => {
     WHERE b.id = $1`, [bookId]);
     const book = result.rows[0];
     const recomendation = book.recomendation;
+    book.date_read = new Date(book.date_read).toISOString().split('T')[0];
+    console.log(book.date_read)
     
-    res.render("edit.ejs", { book, recomendation});
+    res.render("edit.ejs", { book, recomendation, });
   });
 
 app.post("/edit", async (req, res)=>{
@@ -202,8 +209,13 @@ app.get("/book/:id", async (req, res) => {
     JOIN details d ON b.id = d.book_id
     WHERE b.id = $1`, [bookId]);
 
+
     res.render("more.ejs", { book: result.rows[0], cover_image, title });
 });
+
+app.get("/about", (req, res)=>{
+  res.render("about.ejs")
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port${port}`);
