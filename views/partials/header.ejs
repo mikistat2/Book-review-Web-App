@@ -17,21 +17,36 @@
 <body>
 
      <div class="navbar">
-        <div class="logo"><a href="#"><i class="fa-solid fa-book" style="color: #00ffe5;"></i></a></div>
+  <!-- Left: Logo -->
+  <div class="logo">
+    <a href="#"><i class="fa-solid fa-book"></i></a>
+  </div>
 
-        <div class="navbar-links">
-            <ul class="links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="#footer">Contact</a></li>
-            <li><a href="/add">Add</a></li>
-        </ul>
-        </div>
-        
-        
+  <!-- Right: Hamburger icon (only on mobile) -->
+  <div class="hamburger" id="hamburger">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 
-        
-     </div>
+  <!-- Right: Navigation Links -->
+  <div class="navbar-links" id="navbarLinks">
+    <ul class="links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#footer">Contact</a></li>
+      <li><a href="/add">Add</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navbarLinks = document.getElementById('navbarLinks');
+
+  hamburger.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+  });
+</script>
 
      
 

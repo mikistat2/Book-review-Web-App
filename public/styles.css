@@ -11,68 +11,101 @@ body{
 body p{
    line-height: 1.6 !important;
 }
-/* for the header */
+ 
 
-
-/* Glassmorphic Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    margin: 20px;
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  margin: 20px;  
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  flex-wrap: wrap;  
 }
 
-/* Logo */
+ 
 .logo a {
-    font-size: 2rem;
-    color: #d44300;
-    text-decoration: none;
+  font-size: 2rem;
+  color: #00ffe5;
+  text-decoration: none;
 }
 
-/* Navbar links */
+ 
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+ 
+.navbar-links {
+  display: flex;
+}
+
 .navbar-links .links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links .links li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 1rem;
-    position: relative;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 .navbar-links .links li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #74C0FC;
-    left: 0;
-    bottom: -5px;
-    transition: width 0.3s;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #74C0FC;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s;
 }
 
 .navbar-links .links li a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .navbar-links .links li a:hover {
-    color: #74C0FC;
+  color: #74C0FC;
 }
+
+ 
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .navbar-links.active {
+    display: block;
+  }
+
+  .navbar-links .links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
 
 /* for the footer */
 
@@ -264,6 +297,7 @@ body p{
 .sorting-box{
     margin-left: auto;
     margin-bottom: 20px;
+
     
 }
 

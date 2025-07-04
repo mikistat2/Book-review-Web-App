@@ -217,6 +217,8 @@ app.get("/about", (req, res)=>{
   res.render("about.ejs")
 })
 
+
+
 app.listen(port, () => {
   console.log(`Server is running on port${port}`);
 });
