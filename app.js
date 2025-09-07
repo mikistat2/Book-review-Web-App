@@ -484,12 +484,7 @@ passport.deserializeUser(async (id, cb) => {
   }
 });
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
+
 
 app.listen(port || 3000, () => {
   console.log(`Server is running on port ${port}`);
