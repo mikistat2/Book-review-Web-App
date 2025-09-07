@@ -167,13 +167,17 @@ app.get("/logout-page", (req, res) => {
   res.render("logout.ejs");
 });
 
+// ...existing code...
+app.use(passport.session());
+
+// Root route - renders your existing landing page
 app.get("/", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.redirect("/books");
-  } else {
-    res.redirect("/login");
-  }
+  res.render("landing.ejs");
 });
+
+// Login page
+app.get("/login", (req, res) => {
+// ...existing code...
 
 // Login page
 app.get("/login", (req, res) => {
