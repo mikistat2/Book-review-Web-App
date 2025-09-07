@@ -3,43 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= book.title %> - Review | Book Review Web App</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <%- include("partials/header.ejs") %>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title><%= book.title %> - Review</title>
-  <link rel="stylesheet" href="/styles/review.css">
-</head>
-<body>
-  <div class="book-container">
-    <img class="cover-image" src="<%= book.cover_image %>" alt="Book Cover">
 
-    <h1 class="book-title"><%= book.title %></h1>
+    <div class="slide-in">
+    <div class="book-container slide-in ">
+      <img class="cover-image" src="<%= book.cover_image %>" alt="Book Cover">
 
-    <div class="rating-recommendation">
-      <p><strong>Rating:</strong> <%= book.rating %> / 5</p>
-      <p><strong>Recommendation:</strong> <%= book.recomendation %></p>
+      <h1 class="book-title"><%= book.title %></h1>
+
+      <div class="rating-recommendation">
+        <p><strong>Rating:</strong> <%= book.rating %> / 5</p>
+        <p><strong>Recommendation:</strong> <%= book.recomendation %></p>
+      </div>
+
+      <div class="long-review">
+        <p><%= book.long_review %></p>
+      </div>
     </div>
 
-    <div class="long-review">
-      <p><%= book.long_review %></p>
+    <form action="/" method="get">
+      <button class="back-button" type="submit">← Back to Home</button>
+    </form>
+
     </div>
-  </div>
-
-  <form action="/" method="get">
-  <button class="back-button" type="submit">← Back to Home</button>
-</form>
-
-</body>
-</html>
-
-
-
     <%- include("partials/footer.ejs") %>
-    
 </body>
 </html>

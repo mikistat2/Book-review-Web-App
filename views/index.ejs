@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Review Web App</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <%- include("partials/header.ejs") %>
@@ -12,6 +13,10 @@
        
         <div class="headers">
 
+          <div class="hello-username">
+            <span class="hello-word">Hello,</span> <%= user.username %>
+          </div>
+
             <div class="header-title">
                 <h1 class="topic"> My book collection</h1>
             </div>
@@ -19,11 +24,7 @@
             <div class="sorting-box">
 
               
-                <label class="sorting" for="sort">Sort by:</label>
-            <select id="sort" name="sort">
-             <option value="name">Name</option>
-            <option value="date">Date</option>
-            </div>
+                
             
 
         </div>
@@ -33,110 +34,89 @@
         
 </select>
 
+
+    <% if (books.length === 0) { %>
+      <h1 style="
+        text-align:center;
+        margin-top:40px;
+        color:#e3b2a0;
+        font-family:'Permanent Marker', 'Cormorant Garamond', 'Montserrat', serif;
+        font-weight:700;
+        letter-spacing:2px;
+        text-shadow: 0 2px 12px rgba(227, 178, 160, 0.13);
+      ">
+        Make this place your own place
+      </h1>
+    <% } %>
+
     <% books.forEach(book => { %>
-        
-    
-            <div class="content-container">
-                
-                <div class="image-box ">
-                    <img class="book-cover" id="<% book.id %>"   src="<%= book.cover_image %>" alt=" <%=book.title %> cover Image">
+      <div class="book-box">
+        <div class="content-container">
+            <div class="image-box ">
+                <img class="book-cover" id="<% book.id %>"   src="<%= book.cover_image %>" alt=" <%=book.title %> cover Image">
+            </div>
+            <div class="text-container ">
+                <div class="title-container">
+                    <div class="title ">
+                        <h1><%= book.title %></h1>
+                    </div>
+                    <div class="edit-delete">
+                        <form action="/edit/<%= book.book_id %>" method="get">
+                          <div class="edit">
+                            <button style="background: none; border: none;" type="submit">
+                              <i class="fa-solid fa-pen"></i>
+                            </button>  
+                          </div>
+                        </form>
+                        <!-- Trigger Delete Button -->
+                        <button 
+                          style="background: none; border: none;"
+                          type="button" 
+                          class="delete-btn" 
+                          data-id="<%= book.book_id %>" 
+                          data-title="<%= book.title %>">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <!-- Hidden Delete Form -->
+                        <form id="delete-form-<%= book.book_id %>" action="/delete" method="POST" style="display: none;">
+                          <input type="hidden" name="deletedBook" value="<%= book.book_id %>">
+                        </form>
+                    </div>
                 </div>
-
-                <div class="text-container ">
-
-                    <div class="title-container">
-
-                        <div class="title ">
-                            <h1><%= book.title %></h1>
-                        </div>
-
-                        <div class="edit-delete">
-
-                            <form action="/edit/<%= book.book_id %>" method="get">
-                              <div class="edit">
-                                <button style="background: none; border: none;" type="submit">
-                                  <i class="fa-solid fa-pen"></i>
-                                </button>  
-                              </div>
-                            </form>
-
-
-                            <!-- Trigger Delete Button -->
-<button 
-style="background: none; border: none;"
-  type="button" 
-  class="delete-btn" 
-  data-id="<%= book.book_id %>" 
-  data-title="<%= book.title %>">
-  <i class="fa-solid fa-trash"></i>
-</button>
-
-<!-- Hidden Delete Form -->
-<form id="delete-form-<%= book.book_id %>" action="/delete" method="POST" style="display: none;">
-  <input type="hidden" name="deletedBook" value="<%= book.book_id %>">
-</form>
-
-                            
-
-                            
-                        </div>
+                <div class="date-and-rec-container">
+                    <div class="date ">
+                        <h3> Date i read it:   <%= new Date(book.date_read).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                        </h3>
                     </div>
-                    
-
-                    <div class="date-and-rec-container">
-
-                        <div class="date ">
-                            <h3> Date i read it:   <%= new Date(book.date_read).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
- %></h3>
-                        </div>
-
-                        <div class="recomendation ">
-                            <h3>Recomendation <%=book.recomendation%>/10</h3>
-                        </div>
-
+                    <div class="recomendation ">
+                        <h3>Recomendation <%=book.recomendation%>/10</h3>
                     </div>
-
-                    <div class="text ">
-                        <p><%= book.short_review %></p>
-
-                    </div>
-
+                </div>
+                <div class="text ">
+                    <p><%= book.short_review %></p>
+                </div>
                 <div class="rating-recomendation">
-
                   <form action="/more/<%= book.book_id %>" method="post">
                     <div class="read-more">
-
-                      <button type="submit"><a href="/book/<%= book.book_id %>">Read more about my notes</a>
- </a></button>
-                        
-                        </div>
+                      <button type="submit"><a href="/book/<%= book.book_id %>">Read more </a>
+                      </button>
+                    </div>
                   </form>
-
-                        
-
-                                    <div class="rating">
-                  <span><strong>Rating: </strong></span>
-                  <% for (let i = 1; i <= 5; i++) { %>
-                    <% if (i <= book.rating) { %>
-                      <span class="fa fa-star checked"></span>
-                    <% } else { %>
-                      <span class="fa fa-star"></span>
+                  <div class="rating">
+                    <span><strong>Rating: </strong></span>
+                    <% for (let i = 1; i <= 5; i++) { %>
+                      <% if (i <= book.rating) { %>
+                        <span class="fa fa-star checked"></span>
+                      <% } else { %>
+                        <span class="fa fa-star"></span>
+                      <% } %>
                     <% } %>
-                  <% } %>
-                 </div>
-
-                                </div>
-
-                                    
-                          <%   }); %>
-                    
-            </div>
-
-                    
-            
+                  </div>
                 </div>
-
-            </div> 
+            </div>
+        </div>
+      </div>
+    <% }); %>
 
             <div class="Add-new-form">
                 <form action="/add" method="post">
@@ -160,8 +140,8 @@ style="background: none; border: none;"
 
 
 
-    <%- include("partials/footer.ejs") %>
-        <script>
+  <%- include("partials/footer.ejs") %>
+  <script>
   const modal = document.getElementById("confirm-modal");
   const message = document.getElementById("modal-message");
   const confirmBtn = document.getElementById("confirm-delete-btn");

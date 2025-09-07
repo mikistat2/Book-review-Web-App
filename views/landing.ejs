@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | Book Review Web App</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Landing page only: custom footer style */
+    .landing-bg .footer {
+      background: rgba(22, 19, 26, 0.85) !important;
+      color: #e0d6f7 !important;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.18);
+    }
+    .landing-bg .footer a,
+    .landing-bg .footer .content-middle i {
+      color: #b7aaff !important;
+  font-size: 1.8rem !important;
+      margin: 0 6px !important;
+    }
+    .landing-bg .footer .content-middle i:hover {
+      color: #fff !important;
+    }
+    .landing-bg {
+      background: url('https://www.wallpapergap.com/cdn/24/176/aesthetic-book-wallpaper-1920x1200.jpg') no-repeat center center fixed !important;
+      background-size: cover !important;
+      min-height: 100vh;
+    }
+    .landing-hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      margin: 40px auto 0 auto;
+      box-shadow: 0 8px 32px rgba(31,38,135,0.13);
+      max-width: 900px;
+    }
+    .landing-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #f6e4e4;
+      margin-bottom: 18px;
+      font-family: 'Montserrat', sans-serif;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+    }
+    .landing-hero p {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+      font-weight: 400;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      letter-spacing: normal;
+      box-shadow: none;
+    }
+    .landing-hero .cta-btns {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .landing-hero .cta-btns a {
+      padding: 14px 36px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #000000;
+      background: linear-gradient(90deg, #80dee1 0%, #1d7479 100%);
+      box-shadow: 0 4px 16px rgba(142, 45, 226, 0.13);
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 10px;
+    }
+    .landing-hero .cta-btns a:hover {
+      background: linear-gradient(90deg, #0fc1a9 0%, #1b7688 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    @media (max-width: 600px) {
+      .landing-hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="landing-bg slide-in">
+  <%- include("partials/header.ejs") %>
+  <section class="landing-hero slide-in">
+    <h1>Make this place your own place.  </h1>
+    <p>Discover, review, and keep track of your favorite books. make this web app your own space, rate books, customize your personality with what you read, save and share for others get inspired by what others are reading!</p>
+    <div class="cta-btns">
+      <a href="/signup">Get Started</a>
+      <a href="/login" style="background: linear-gradient(90deg, #293244 0%, #3e8487 100%); color: #ffffff;">Login</a>
+    </div>
+  </section>
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

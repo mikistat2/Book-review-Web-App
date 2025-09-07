@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book | Book Review Web App</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
     
     <%- include("partials/header.ejs") %>
 
 
    <div class="new-container">
-  <h2>Add a New Book</h2>
+  <h2 style = " color: rgb(22, 94, 91)">Add a New Book</h2>
   <form action="/books/add" method="POST" class="book-form">
     <label for="title">Book Title:</label>
     <input type="text" id="title" name="title" required>
@@ -40,6 +40,6 @@
 
 
 
-    <%- include("partials/footer.ejs") %>
+  <%- include("partials/footer.ejs") %>
 </body>
 </html>

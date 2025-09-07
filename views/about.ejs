@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Book Review Web App</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <%- include("partials/header.ejs") %>
@@ -13,27 +14,14 @@
   <!-- About the Website Section -->
   <section class="about-website-section">
     <h2>About the Website</h2>
-    <p>
-      This website is built for passionate readers who want to keep track of the books they read, write insightful reviews, and manage their reading journey all in one place. It’s designed to be simple, elegant, and functional — giving users a personalized library and review archive.
+    <p style="color:#e8e8e8; font-size:1.13rem; line-height:1.7; margin-bottom: 18px;">
+      MY BOOKS is built for passionate readers who want to keep track of the books they read, write insightful reviews, and manage their reading journey all in one place. It’s designed to be simple, elegant, and functional — giving users a personalized library and review archive.<br><br>
+      You can share your personality with your friends and allow them to understand you and your taste more.
     </p>
-    <p>
-      The stack includes Node.js, Express, EJS for server-side rendering, and modern CSS with Flexbox and Glassmorphism effects to give it a clean, futuristic feel.
-    </p>
-  </section>
 
-  <!-- About Me Section -->
-  <section class="about-me-section">
-    <div class="about-me-card">
-      <img src="../images/profile.jpg">
-        <h2>About Me</h2>
-        <p>
-          Hi, I'm Mikiyas — a Computer Science student at Hawassa University and the creator of this site. I'm passionate about building intuitive web experiences, learning new technologies, and solving real-world problems through code.
-        </p>
-        <p>
-          When I’m not coding, I’m usually reading novels, learning UI/UX design, or experimenting with new side projects. My goal is to create tools that are both beautiful and useful — and to keep growing as a developer.
-        </p>
-      </div>
-    </div>
+    <p style="color:#5b3c7a; font-size:1.08rem; font-weight:500; margin-top: 10px; text-align: center; font-size: 2rem ">
+      Make this place your own space.
+    </p>
   </section>
 
 </div>
@@ -41,7 +29,6 @@
 
 
 
-    <%- include("partials/footer.ejs") %>
-    
+  <%- include("partials/footer.ejs") %>
 </body>
 </html>

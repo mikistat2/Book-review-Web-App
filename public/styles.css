@@ -1,3 +1,32 @@
+@media (max-width: 600px) {
+  .title h1 {
+    font-size: 1.1rem !important;
+    
+  }
+  .edit-delete i {
+    font-size: 1rem !important;
+  }
+  .edit-delete i:hover {
+    font-size: 1.1rem !important;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.7s ease-out forwards;
+}
+
+
 body{
     background: url("https://images.unsplash.com/photo-1563518839049-f44a5e423f12?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") !important;
     color: #fff !important;
@@ -116,7 +145,7 @@ body p{
     justify-content: space-between;
     padding-top: 30px;
     padding: 20px;
-    background: url("https://images.unsplash.com/photo-1619779854918-013a8e70452a?q=80&w=1240&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") !important;
+    background: url("../images/footer-img.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -131,14 +160,13 @@ body p{
 }
 
 .footer .content-left li{
-    list-style: none;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+  list-style: none;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
 .footer .content-left{
-
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .footer .content-middle i{
@@ -296,9 +324,7 @@ body p{
 }
 .sorting-box{
     margin-left: auto;
-    margin-bottom: 20px;
-
-    
+    margin-bottom: 100px;
 }
 
 .sorting-box .sorting {
@@ -325,12 +351,78 @@ body p{
 
 
 .content-container{
-    display: block;
-    flex-direction: row;
-    margin-top: 80px;
-    height: auto;
-    
+  display: block;
+  flex-direction: row;
+  margin-top: 80px;
+  height: auto;
 }
+
+.book-box {
+  background: rgba(30, 30, 50, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80,80,120,0.13);
+  padding: 2px 18px 20px 18px;
+  margin-bottom: 36px;
+  min-height: 340px;
+}
+
+
+
+@media (max-width: 600px) {
+  .book-box {
+    padding-top: 2px !important; /* Decreased from default for phone mode */
+    /* ...other responsive styles... */
+  }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.hello-username {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Lobster', cursive;
+  text-align: left;
+  margin-top: 18px;
+  margin-bottom: 24px;
+  margin-left: 32px;
+  margin-right: 0;
+  letter-spacing: 1px;
+  color: #e3b2a0; /* Sweet coral color for username */
+}
+
+.hello-username .hello-word {
+  color: rgb(246, 246, 255); /* Dark color for "Hello" */
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  text-shadow: none;
+}
+
+/* ...existing code... */
+/* ...existing code... */
+
+@media (max-width: 600px) {
+  .hello-username {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    margin-right: 18px;
+  }
+}
+
+/* ...existing code... */
+/* ...existing code... */
+
 
 .date-and-rec-container{
      
@@ -341,16 +433,16 @@ body p{
 }
 
 .title-container{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .edit-delete{
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  align-items: center;
+  gap: 18px;
 }
 
 .edit-delete i {
@@ -369,21 +461,24 @@ body p{
     height: 30vh;
     width: 150px !important;
     margin-right: 30px;
+    
     display: inline;
 }
 
 .book-cover{
-    height: 30vh;
-    width: 150px;
-    float: left;
-    overflow: hidden;
-     margin-right: 20px;
-    margin-bottom: 10px;
+  height: 30vh;
+  width: 150px;
+  float: left;
+  overflow: hidden;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-top: 60px !important;
 }
 .title{
-    text-align: center;
-    margin-left: auto;
-    margin-right: 30px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 30px;
 }
 
 .title h1 {
@@ -411,6 +506,12 @@ body p{
   color: #7982ff;
 }
 
+@media (max-width: 600px) {
+  .read-more {
+    margin-bottom: 16px; /* Adds space below the read more button on phones */
+  }
+}
+
 .Add-new-form{
     margin-top: 60px;
     margin-bottom: 60px;
@@ -430,14 +531,13 @@ body p{
     margin-top: 120px;
 }
 .rating-recomendation{
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between ;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between ;
+  padding-bottom: 24px;
 }
 
-.rating{
-    margin-left: 200px;
-}
+
 
 
 
@@ -835,19 +935,31 @@ font-size: 3rem;
 
 }
 
-.recomendation-and-rating-container{
+
+.recomendation-and-rating-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 80px;
-  font-size: 1.3rem;
-  font-family: 'montserrat', sans-serif;
-  font-weight: bold;
-  margin-bottom: 100px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-bottom: 40px;
 }
 
-.recomendation-and-rating-container .recommendation{
-  margin-right: 200px;
+.recomendation-and-rating-container > div {
+  flex: 1 1 0;
+  min-width: 80px;
+  max-width: 180px;
+  margin: 0 2px;
+  box-sizing: border-box;
+}
+
+.recomendation-and-rating-container input,
+.recomendation-and-rating-container select {
+  padding: 6px 4px;
+  font-size: 0.98rem;
 }
 
 .rr input{
@@ -956,7 +1068,6 @@ font-size: 3rem;
    align-items: center;
     justify-content: center;
     margin-left: auto;
-     ;
     font-family: 'montserrat', sans-serif;
     text-align: center;
 
@@ -1234,6 +1345,21 @@ body {
 
   .about-me-text {
     margin-top: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Remove enlarged navbar styles for wide screens */
+  .navbar {
+    /* font-size: 1.25rem;
+    padding: 28px 0; */
+  }
+  .logo a {
+    /* font-size: 2.2rem; */
+  }
+  .navbar-links .links li a {
+    /* font-size: 1.15rem;
+    padding: 0 18px; */
   }
 }
 

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Book Review Web App</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Prevent horizontal scroll */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Montserrat', sans-serif;
+      background: #f9f9fb;
+    }
+
+    /* Flex container */
+    .signup-flex-container {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Left panel */
+    .signup-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .signup-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+      .signup-form-card button:hover {
+      background: linear-gradient(to right, #4a00e0, #8e2de2);
+      transform: translateY(-2px);
+    }
+    /* Right panel */
+    .signup-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Card */
+    .signup-form-card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(255,255,255,0.13);
+      border-radius: 26px;
+      box-shadow: 0 12px 40px 0 rgba(142, 45, 226, 0.13), 0 2px 8px 0 rgba(0,0,0,0.07);
+      padding: 48px 36px 32px 36px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      animation: fadeInUp 0.7s cubic-bezier(.39,.575,.56,1.000);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signup-form-card h2 {
+      text-align: center;
+      color: #23234c;
+      font-weight: 700;
+      font-size: 2.1rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .signup-form-card p {
+      text-align: center;
+      color: #3b3b4f;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    /* Form elements */
+    .signup-form-card label {
+      font-weight: 600;
+      color: #2d3a4a;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .signup-form-card input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1.5px solid #c7d2fe;
+      background: #f4f7ff;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border 0.2s, background 0.2s, box-shadow 0.2s;
+      color: #23234c;
+    }
+    .signup-form-card input:focus {
+      border: 1.5px solid #8e2de2;
+      background: #f0e6ff; /* Changed to match login page's effect */
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.1); /* Added glow effect */
+    }
+
+     .signup-form-card input:focus {
+      border: 1.5px solid #fff;
+      outline: none;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* Primary button */
+    .signup-form-card button {
+      margin-top: 10px;
+      padding: 14px 0;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(142, 45, 226, 0.3);
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
+    }
+    .signup-form-card button:hover {
+      background: linear-gradient(to right, #4a00e0, #8e2de2);
+      transform: translateY(-2px);
+    }
+
+    /* Google button */
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #fff;
+      color: #444;
+      border: 1.5px solid #c7d2fe;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 0;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: box-shadow 0.2s, border 0.2s;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .google-btn img {
+      width: 22px;
+      height: 22px;
+    }
+    .google-btn:hover {
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+      border-color: #8e2de2;
+    }
+
+    /* Login link */
+    .signup-form-card .login-link {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #2d3a4a;
+      text-decoration: none;
+      font-size: 0.98rem;
+      transition: color 0.2s;
+    }
+    .signup-form-card .login-link:hover {
+      color: #4a00e0;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 1020px) {
+      .signup-flex-container {
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      .signup-left {
+        width: 100%;
+        height: 250px;
+      }
+    }
+    @media (max-width: 1020px) {
+      .signup-left {
+        display: none;
+      }
+      .signup-right {
+        width: 100%;
+        padding: 20px;
+      }
+      .signup-form-card {
+        max-width: 340px;
+        width: 100%;
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <%- include("partials/header.ejs") %>
+  <div class="signup-flex-container">
+    <div class="signup-left slid-in">
+      <img class="slid-in" style="margin-left: 20px; min-height: 700px; border-radius: 20px;" src="https://w0.peakpx.com/wallpaper/130/296/HD-wallpaper-books-aesthetic-art-book-dark-fiction-love-shelf.jpg" alt="Bookshelf illustration">
+    </div>
+    <div class="signup-right">
+      <div class="signup-form-card">
+        <h2>Sign Up</h2>
+        <p>Create your account to start reviewing books!</p>
+        
+
+        <form action="/signup" method="POST">
+          <label for="username">Username</label>
+          <% if (typeof usernameError !== 'undefined' && usernameError) { %>
+            <div style="color: #ab372a; font-size: 0.98rem; margin: 6px 0 6px 0; text-align: left;"> <%= usernameError %> </div>
+          <% } %>
+          <input type="text" id="username" name="username" required placeholder="Choose a username">
+
+          <label for="email">Email</label>
+          <% if (typeof emailError !== 'undefined' && emailError) { %>
+            <div style="color: #a43d31; font-size: 0.98rem; margin: 6px 0 6px 0; text-align: left;"> <%= emailError %> </div>
+          <% } %>
+          <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+          <label for="password">Password</label>
+          <% if (typeof passwordError !== 'undefined' && passwordError) { %>
+            <div style="color: #a4493f; font-size: 0.98rem; margin: 6px 0 6px 0; text-align: left;"> <%= passwordError %> </div>
+          <% } %>
+          <input type="password" id="password" name="password" required placeholder="Create a password">
+
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <form action="/auth/google" method="GET">
+           <form action="/auth/google" method="GET">
+          <button type="submit" class="google-btn">
+            <i class="fa-brands fa-google" style="font-size: 1.3em; color: #ea4335;"></i>
+            Continue with Google
+          </button>
+        </form>
+        </form>
+
+        <a class="login-link" href="/login">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>
