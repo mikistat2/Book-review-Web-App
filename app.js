@@ -167,15 +167,12 @@ app.get("/logout-page", (req, res) => {
   res.render("logout.ejs");
 });
 
-// ...existing code...
-app.use(passport.session());
-
 // Root route - renders your existing landing page
 app.get("/", (req, res) => {
   res.render("landing.ejs");
 });
 
-// Login page
+
 
 
 // Login page
@@ -299,7 +296,6 @@ app.post("/books/add", ensureAuthenticated, async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
 
 
 
@@ -473,15 +469,27 @@ const newUser = await db.query(
 passport.serializeUser((user, cb) => {
   cb(null, user.id);
 });
+
 passport.deserializeUser(async (id, cb) => {
   try {
     const result = await db.query("SELECT * FROM users WHERE id = $1", [id]);
-    cb(null, result.rows[0]);
+    if (result.rows.length > 0) {
+      const user = result.rows[0];
+      cb(null, user);
+    } else {
+      cb(null, false); // No user found
+    }
   } catch (err) {
     cb(err);
   }
 });
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
 app.listen(port || 3000, () => {
   console.log(`Server is running on port ${port}`);
