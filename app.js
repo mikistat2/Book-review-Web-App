@@ -69,6 +69,10 @@ const saltRounds = 10;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+// Trust the first proxy
+app.set('trust proxy', 1);
+
 app.use(flash());
 
 // Session middleware
@@ -172,23 +176,18 @@ app.get("/", (req, res) => {
   res.render("landing.ejs");
 });
 
-
-
-
 // Login page
 app.get("/login", (req, res) => {
   res.render("login.ejs", { message: req.flash("error") });
 });
 
-
-// Root route now renders the landing page
-app.get("/", (req, res) => {
-  res.render("landing.ejs");
+// Signup page
+app.get("/signup", (req, res) => {
+  res.render("signup.ejs", { usernameError: undefined, emailError: undefined, passwordError: undefined });
 });
 
 // Book index moved to /books
 // Protect /books route
-// ...existing code...
 app.get("/books", ensureAuthenticated, async (req, res) => {
   const userId = req.user.id; // <-- Use Passport's user object
   const books = await getBooksForUser(userId);
@@ -201,17 +200,7 @@ app.get("/add", ensureAuthenticated, async (req, res) => {
   res.render("new.ejs", { books });
 });
 
-app.get("/signup", (req, res) => {
-  res.render("signup.ejs", { usernameError: undefined, emailError: undefined, passwordError: undefined });
-});
-
-app.get("/login", (req, res) => {
-  res.render("login.ejs", { message: req.flash("error") });
-});
-
-
-
-
+// DELETED DUPLICATE /signup and /login GET routes that were here
 
 // User registration (signup)
 app.post("/signup", async (req, res) => {
