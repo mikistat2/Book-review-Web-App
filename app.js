@@ -176,8 +176,7 @@ app.get("/", (req, res) => {
 });
 
 // Login page
-app.get("/login", (req, res) => {
-// ...existing code...
+
 
 // Login page
 app.get("/login", (req, res) => {
