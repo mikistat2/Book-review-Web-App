@@ -167,6 +167,20 @@ app.get("/logout-page", (req, res) => {
   res.render("logout.ejs");
 });
 
+app.get("/", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.redirect("/books");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+// Login page
+app.get("/login", (req, res) => {
+  res.render("login.ejs", { message: req.flash("error") });
+});
+
+
 // Root route now renders the landing page
 app.get("/", (req, res) => {
   res.render("landing.ejs");
