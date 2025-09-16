@@ -85,14 +85,16 @@
                 </div>
                 <div class="date-and-rec-container">
                     <div class="date ">
-                        <h3> Date i read it:   <%= new Date(book.date_read).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                        <h3 style="color: rgb(91, 35, 35);
+                        "> Date read:    <%= new Date(book.date_read).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })  %>  
                         </h3>
                     </div>
                     <div class="recomendation ">
-                        <h3>Recomendation <%=book.recomendation%>/10</h3>
+                        <h3 style="color: rgb(112, 22, 22);">Recomendation <span style="color: rgb(24, 39, 125);"><%=book.recomendation%>/10</span></h3>
                     </div>
                 </div>
                 <div class="text ">
+                   <img class="book-cover-small" id="<% book.id %>"   src="<%= book.cover_image %>" alt=" <%=book.title %> cover Image">
                     <p><%= book.short_review %></p>
                 </div>
                 <div class="rating-recomendation">
